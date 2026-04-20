@@ -9,7 +9,7 @@ const MassGainer = ({ isLoggedIn }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/products/category/MASS_GAINER")
+      .get("https://gymkart-backend-20.onrender.com/products/category/MASS_GAINER")
       .then((res) => {
         console.log(res.data);
         setProducts(res.data);

@@ -8,7 +8,7 @@ const CartPage = () => {
     // Fetch cart items
     const fetchCart = async () => {
         try {
-            const res = await axios.get("http://localhost:8080/cart/items");
+            const res = await axios.get("https://gymkart-backend-20.onrender.com/cart/items");
             setCartItems(res.data);
         } catch (error) {
             console.log(error);
@@ -18,7 +18,7 @@ const CartPage = () => {
     // Fetch total amount
     const fetchTotal = async () => {
         try {
-            const res = await axios.get("http://localhost:8080/cart/total");
+            const res = await axios.get("https://gymkart-backend-20.onrender.com/cart/total");
             setTotal(res.data);
         } catch (error) {
             console.log(error);
@@ -32,28 +32,28 @@ const CartPage = () => {
 
     // Increase quantity
     const increaseQty = async (id) => {
-        await axios.put(`http://localhost:8080/cart/increase/${id}`);
+        await axios.put(`https://gymkart-backend-20.onrender.com/cart/increase/${id}`);
         fetchCart();
         fetchTotal();
     };
 
     // Decrease quantity
     const decreaseQty = async (id) => {
-        await axios.put(`http://localhost:8080/cart/decrease/${id}`);
+        await axios.put(`https://gymkart-backend-20.onrender.com/cart/decrease/${id}`);
         fetchCart();
         fetchTotal();
     };
 
     // Remove item
     const removeItem = async (id) => {
-        await axios.delete(`http://localhost:8080/cart/remove/${id}`);
+        await axios.delete(`https://gymkart-backend-20.onrender.com/cart/remove/${id}`);
         fetchCart();
         fetchTotal();
     };
 
     // Clear cart
     const clearCart = async () => {
-        await axios.delete("http://localhost:8080/cart/clear");
+        await axios.delete("https://gymkart-backend-20.onrender.com/cart/clear");
         fetchCart();
         fetchTotal();
     };
@@ -68,7 +68,7 @@ const CartPage = () => {
         try {
             // Create order from backend
             const response = await axios.post(
-                "http://localhost:8080/cart/payment/createOrder",
+                "https://gymkart-backend-20.onrender.com/cart/payment/createOrder",
                 { amount: total }
             );
 
@@ -86,7 +86,7 @@ const CartPage = () => {
                     console.log(paymentResult);
 
                     // Clear cart after payment
-                    await axios.delete("http://localhost:8080/cart/clear");
+                    await axios.delete("https://gymkart-backend-20.onrender.com/cart/clear");
                     setCartItems([]);
                     setTotal(0);
                 },

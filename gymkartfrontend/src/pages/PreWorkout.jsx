@@ -9,7 +9,7 @@ const PreWorkout = ({ isLoggedIn }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/products/category/PRE_WORKOUT")
+      .get("https://gymkart-backend-20.onrender.com/products/category/PRE_WORKOUT")
       .then((res) => {
         console.log(res.data);
         setProducts(res.data);
